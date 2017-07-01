@@ -18,7 +18,7 @@
 		B53533F31EFADAE5007B732B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53533F11EFADAE5007B732B /* Main.storyboard */; };
 		B53533F51EFADAE5007B732B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53533F41EFADAE5007B732B /* Assets.xcassets */; };
 		B53533F81EFADAE5007B732B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53533F61EFADAE5007B732B /* LaunchScreen.storyboard */; };
-		B53534001EFADB13007B732B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B53533FF1EFADB13007B732B /* GoogleService-Info.plist */; };
+		B5ABD3BC1F0777C00081CD7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5ABD3BB1F0777C00081CD7C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		B53533F41EFADAE5007B732B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B53533F71EFADAE5007B732B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B53533F91EFADAE5007B732B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B53533FF1EFADB13007B732B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5ABD3BB1F0777C00081CD7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1BADEA4A3BD0B0A5949DC72 /* Pods-mth-social3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mth-social3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mth-social3/Pods-mth-social3.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,7 +124,7 @@
 				B53533F41EFADAE5007B732B /* Assets.xcassets */,
 				B53533F61EFADAE5007B732B /* LaunchScreen.storyboard */,
 				B53533F91EFADAE5007B732B /* Info.plist */,
-				B53533FF1EFADB13007B732B /* GoogleService-Info.plist */,
+				B5ABD3BB1F0777C00081CD7C /* GoogleService-Info.plist */,
 			);
 			path = "mth-social3";
 			sourceTree = "<group>";
@@ -174,6 +174,7 @@
 					B53533E91EFADAE5007B732B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 26W833QKHJ;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -202,8 +203,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B53533F81EFADAE5007B732B /* LaunchScreen.storyboard in Resources */,
-				B53534001EFADB13007B732B /* GoogleService-Info.plist in Resources */,
 				B53533F51EFADAE5007B732B /* Assets.xcassets in Resources */,
+				B5ABD3BC1F0777C00081CD7C /* GoogleService-Info.plist in Resources */,
 				B53533F31EFADAE5007B732B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,7 +254,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
