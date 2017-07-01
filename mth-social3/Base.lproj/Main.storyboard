@@ -89,7 +89,7 @@
                                         <rect key="frame" x="0.0" y="45" width="283" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFa-M1-CPh" customClass="FancyBtn" customModule="mth_social3" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="90" width="283" height="37"/>
@@ -98,6 +98,9 @@
                                         <state key="normal" title="Sign in">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signInBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QLg-Fj-qg7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -121,6 +124,10 @@
                             <constraint firstItem="mzA-wI-A57" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s23-i3-cvO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="ezx-Op-LXD" id="bM6-0C-6T0"/>
+                        <outlet property="pwdField" destination="Pyi-z9-U9V" id="2mV-MU-ZV6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
