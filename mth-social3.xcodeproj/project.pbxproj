@@ -18,7 +18,9 @@
 		B53533F31EFADAE5007B732B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53533F11EFADAE5007B732B /* Main.storyboard */; };
 		B53533F51EFADAE5007B732B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53533F41EFADAE5007B732B /* Assets.xcassets */; };
 		B53533F81EFADAE5007B732B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53533F61EFADAE5007B732B /* LaunchScreen.storyboard */; };
+		B56B4AD01F0934D100C5ADB8 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B4ACF1F0934D100C5ADB8 /* CircleView.swift */; };
 		B5ABD3BC1F0777C00081CD7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5ABD3BB1F0777C00081CD7C /* GoogleService-Info.plist */; };
+		B5ABD3BE1F078AE00081CD7C /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ABD3BD1F078AE00081CD7C /* FeedVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +38,10 @@
 		B53533F41EFADAE5007B732B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B53533F71EFADAE5007B732B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B53533F91EFADAE5007B732B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B56B4ACF1F0934D100C5ADB8 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		B5ABD3BB1F0777C00081CD7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5ABD3BD1F078AE00081CD7C /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		B5ABD3BF1F0792690081CD7C /* mth-social3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "mth-social3.entitlements"; sourceTree = "<group>"; };
 		C1BADEA4A3BD0B0A5949DC72 /* Pods-mth-social3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mth-social3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mth-social3/Pods-mth-social3.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				B53533EF1EFADAE5007B732B /* SignInVC.swift */,
+				B5ABD3BD1F078AE00081CD7C /* FeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -82,6 +88,7 @@
 				B522BAA21F0236F2007E09FC /* RoundBtn.swift */,
 				B522BAA41F023815007E09FC /* FancyField.swift */,
 				B522BAA61F0295A2007E09FC /* FancyBtn.swift */,
+				B56B4ACF1F0934D100C5ADB8 /* CircleView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -115,6 +122,7 @@
 		B53533EC1EFADAE5007B732B /* mth-social3 */ = {
 			isa = PBXGroup;
 			children = (
+				B5ABD3BF1F0792690081CD7C /* mth-social3.entitlements */,
 				B522BA9F1F02345E007E09FC /* Util */,
 				B522BA9B1F023392007E09FC /* Controller */,
 				B522BA9C1F023399007E09FC /* View */,
@@ -176,6 +184,11 @@
 						DevelopmentTeam = 26W833QKHJ;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -264,10 +277,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56B4AD01F0934D100C5ADB8 /* CircleView.swift in Sources */,
 				B522BAA51F023815007E09FC /* FancyField.swift in Sources */,
 				B53533F01EFADAE5007B732B /* SignInVC.swift in Sources */,
 				B522BAA31F0236F2007E09FC /* RoundBtn.swift in Sources */,
 				B53533EE1EFADAE5007B732B /* AppDelegate.swift in Sources */,
+				B5ABD3BE1F078AE00081CD7C /* FeedVC.swift in Sources */,
 				B522BA9E1F023406007E09FC /* FancyView.swift in Sources */,
 				B522BAA11F023475007E09FC /* Constants.swift in Sources */,
 				B522BAA71F0295A2007E09FC /* FancyBtn.swift in Sources */,
@@ -392,6 +407,7 @@
 			baseConfigurationReference = C1BADEA4A3BD0B0A5949DC72 /* Pods-mth-social3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "mth-social3/mth-social3.entitlements";
 				DEVELOPMENT_TEAM = 26W833QKHJ;
 				INFOPLIST_FILE = "mth-social3/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -406,6 +422,7 @@
 			baseConfigurationReference = 5BFDF38DCB27E2FEE1B9BED5 /* Pods-mth-social3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "mth-social3/mth-social3.entitlements";
 				DEVELOPMENT_TEAM = 26W833QKHJ;
 				INFOPLIST_FILE = "mth-social3/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
