@@ -19,6 +19,7 @@
 		B53533F51EFADAE5007B732B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53533F41EFADAE5007B732B /* Assets.xcassets */; };
 		B53533F81EFADAE5007B732B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53533F61EFADAE5007B732B /* LaunchScreen.storyboard */; };
 		B56B4AD01F0934D100C5ADB8 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B4ACF1F0934D100C5ADB8 /* CircleView.swift */; };
+		B59542141F0BD43200C0F4B3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59542131F0BD43200C0F4B3 /* PostCell.swift */; };
 		B5ABD3BC1F0777C00081CD7C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5ABD3BB1F0777C00081CD7C /* GoogleService-Info.plist */; };
 		B5ABD3BE1F078AE00081CD7C /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ABD3BD1F078AE00081CD7C /* FeedVC.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,7 @@
 		B53533F71EFADAE5007B732B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B53533F91EFADAE5007B732B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B56B4ACF1F0934D100C5ADB8 /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		B59542131F0BD43200C0F4B3 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		B5ABD3BB1F0777C00081CD7C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5ABD3BD1F078AE00081CD7C /* FeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		B5ABD3BF1F0792690081CD7C /* mth-social3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "mth-social3.entitlements"; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				B522BAA41F023815007E09FC /* FancyField.swift */,
 				B522BAA61F0295A2007E09FC /* FancyBtn.swift */,
 				B56B4ACF1F0934D100C5ADB8 /* CircleView.swift */,
+				B59542131F0BD43200C0F4B3 /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				B522BA9E1F023406007E09FC /* FancyView.swift in Sources */,
 				B522BAA11F023475007E09FC /* Constants.swift in Sources */,
 				B522BAA71F0295A2007E09FC /* FancyBtn.swift in Sources */,
+				B59542141F0BD43200C0F4B3 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
