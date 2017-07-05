@@ -56,27 +56,35 @@ class SignInVC: UIViewController {
     
     func firebaseAuth(_ credential:FIRAuthCredential){
         FIRAuth.auth()?.signIn(with:credential,completion:{ (user,error) in
-            if error != nil{
-                print("JESS::unable to uthenticate with Firebase - \(error)")
+            
+                       if error != nil{
+                print("JESS::unable to authenticate with Firebase - \(error)")
             }
             else{
                 print("JESS:SUccessfully authenticated with Firebaaes")}
-                self.completeSignIn(id: (user?.uid)!)
+            let userData = ["provider":credential.provider]
+
+                self.completeSignIn(id: (user?.uid)!,userData:userData as! Dictionary<String, String>)
         })
     }
     @IBAction func signInBtn(_ sender: Any) {
         if let email = emailField.text, let pwd = pwdField.text{
             FIRAuth.auth()?.signIn(withEmail: email, password: pwd, completion:{(user,error) in
+                
+                
                 if error == nil{
                     print("JESS: Email User authenticated with Firebase")
-                    self.completeSignIn(id: (user?.uid)!)
+                    let userData = ["provider":user?.providerID]
+                    self.completeSignIn(id: (user?.uid)!,userData: userData as! Dictionary<String, String>)
                 }else{
                     FIRAuth.auth()?.createUser(withEmail: email, password: pwd, completion: {(user,error)in
                         if error != nil{
                             print("JESS: Unable to authenticate with firebase using email")
                         }else{
+                            
                             print("JESS: Successfully authenticated with Firebase using create email")
-                            self.completeSignIn(id: (user?.uid)!)
+                            let userData = ["provider":user?.providerID]
+                            self.completeSignIn(id: (user?.uid)!,userData: userData as! Dictionary<String, String>)
                         }
                     })
                 }
@@ -86,7 +94,9 @@ class SignInVC: UIViewController {
         
     }
     
-    func completeSignIn(id: String){
+    func completeSignIn(id: String,userData: Dictionary<String,String>){
+        
+        DataService.ds.createFirebaseDBUser(uid:id,userData:userData)
         let saveSuccessful: Bool = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("JESS: Data saved to keychain - \(saveSuccessful)")
         performSegue(withIdentifier: "goToFeed", sender: nil)
