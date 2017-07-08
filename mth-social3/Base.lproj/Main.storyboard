@@ -182,13 +182,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ird-3Q-uu3">
                                         <rect key="frame" x="8" y="8" width="311" height="49"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="uO8-VK-AKX" customClass="CircleView" customModule="mth_social3" customModuleProvider="target">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-image" translatesAutoresizingMaskIntoConstraints="NO" id="uO8-VK-AKX" customClass="CircleView" customModule="mth_social3" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
                                                 <color key="backgroundColor" red="0.08235294118" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="49" id="0gi-ot-WLr"/>
                                                     <constraint firstAttribute="width" constant="49" id="aoF-22-lYu"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="0eC-aH-0Mt" appends="YES" id="ZII-Ns-2Q5"/>
+                                                </connections>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="11A-Hb-0kp" customClass="FancyField" customModule="mth_social3" customModuleProvider="target">
                                                 <rect key="frame" x="57" y="9.5" width="197" height="30"/>
@@ -239,6 +242,7 @@
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="Ifp-mD-F7l" customClass="CircleView" customModule="mth_social3" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                                            <gestureRecognizers/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="60" id="CLy-Ad-h0x"/>
                                                                                 <constraint firstAttribute="width" constant="60" id="bBF-do-bH9"/>
@@ -338,6 +342,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageAdd" destination="uO8-VK-AKX" id="ajc-G0-yw9"/>
                         <outlet property="tableView" destination="YyH-X7-68y" id="Ksj-VJ-0ud"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="6Lx-lG-HXY"/>
                     </connections>
@@ -346,6 +351,11 @@
                 <tapGestureRecognizer id="p0q-qj-Zz1">
                     <connections>
                         <action selector="signOutTapped:" destination="hls-9H-9eN" id="Uop-u6-yL0"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="0eC-aH-0Mt">
+                    <connections>
+                        <action selector="addImageTapped:" destination="hls-9H-9eN" id="flY-lH-Mnd"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

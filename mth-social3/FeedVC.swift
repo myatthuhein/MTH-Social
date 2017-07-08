@@ -10,11 +10,14 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-class FeedVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class FeedVC: UIViewController,UITableViewDelegate,UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var imageAdd: CircleView!
     
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [Post]()
+    
+    var imagePicker: UIImagePickerController!
 
     @IBAction func signOutTapped(_ sender: Any) {
         
@@ -23,7 +26,7 @@ class FeedVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         print("JESS: remove - \(removeSuccessful)")
         try! FIRAuth.auth()?.signOut()
         if(self.presentingViewController != nil){
-            self.dismiss(animated: false, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
         
     }
@@ -34,6 +37,10 @@ class FeedVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
             tableView.delegate = self
             tableView.dataSource = self
+        
+            imagePicker = UIImagePickerController()
+            imagePicker.allowsEditing = true
+            imagePicker.delegate = self
         
         DataService.ds.REF_POSTS.observe(.value, with: {(snapshot) in
             
@@ -54,6 +61,22 @@ class FeedVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         
        
+    }
+    
+    @IBAction func addImageTapped(_ sender: Any) {
+            present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
+            imageAdd.image = image
+        }else{
+            print("JESS: A valid image wasn't selected")
+        }
+
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
