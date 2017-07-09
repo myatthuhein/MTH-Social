@@ -12,6 +12,8 @@ import Firebase
 
 class FeedVC: UIViewController,UITableViewDelegate,UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var imageAdd: CircleView!
+    @IBOutlet weak var captionField: FancyField!
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,7 +22,37 @@ class FeedVC: UIViewController,UITableViewDelegate,UITableViewDataSource, UIImag
     var imagePicker: UIImagePickerController!
     
     static var imageCache: NSCache<NSString,UIImage> = NSCache()
+    
+    var imageSelected = false
 
+    @IBAction func postBtnTapped(_ sender: Any) {
+        guard let caption = captionField.text, caption != "" else{
+            print("JESS: Caption must be entered.")
+            return
+        }
+        guard let img = imageAdd.image,self.imageSelected == true else{
+            print("JESS: An image must be selected.")
+            return
+        }
+        
+        if let imgData = UIImageJPEGRepresentation(img, 0.0){
+            
+            let imgUid = NSUUID().uuidString
+            let metadata = FIRStorageMetadata()
+            metadata.contentType = "image/jpeg"
+            DataService.ds.REF_POST_IMAGES.child(imgUid).put(imgData, metadata: metadata){(metadata,error) in
+                if error != nil {
+                    print("JESS: Unable to upload image to Firebase storage")
+                }else{
+                    print("JESS: Successfully uploaded image to Firebase storage")
+                    let downloadURL = metadata?.downloadURL()?.absoluteString
+                    self.postToFirebase(imgUrl: downloadURL!)
+                    
+                }
+            }
+        }
+    }
+    
     @IBAction func signOutTapped(_ sender: Any) {
         
         
@@ -70,10 +102,26 @@ class FeedVC: UIViewController,UITableViewDelegate,UITableViewDataSource, UIImag
         
     }
     
+    func postToFirebase(imgUrl: String) {
+        let post: Dictionary<String,AnyObject> = [
+        "caption": captionField.text as AnyObject,
+        "imgUrl": imgUrl as AnyObject,
+        "likes": 0 as AnyObject
+        ]
+        
+        let firebasePost = DataService.ds.REF_POSTS.childByAutoId()
+        firebasePost.setValue(post)
+        
+        captionField.text = ""
+        imageSelected = false
+        imageAdd.image = UIImage(named: "add-image")
+    }
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
             imageAdd.image = image
+            imageSelected = true
         }else{
             print("JESS: A valid image wasn't selected")
         }
@@ -98,11 +146,12 @@ class FeedVC: UIViewController,UITableViewDelegate,UITableViewDataSource, UIImag
             var img:UIImage!
             if let img = FeedVC.imageCache.object(forKey: post.imgUrl as NSString){
                 cell.configureCell(post: post, img: img)
-                return cell
+                
             }else{
                 cell.configureCell(post: post, img: nil)
-                return cell
+                
             }
+            return cell
         }
         else{
         return PostCell()
